@@ -31,3 +31,14 @@ By changing the initial fixed states in environment to the random sampled case, 
 <div align="center">
   <img src="openrl/examples/mpe/ppo.gif" height="500" width="500"></a>
 </div>
+
+## QMIX (based on [MARL Benchmark](https://github.com/OpenRL-Lab/openrl))
+
+The training and evaluation process of [MAPPO](https://arxiv.org/abs/2103.01955) are implemented in ```openrl``` folder.
+
+To enable the off-policy library
+```
+# install off-policy package
+cd off-policy
+pip install -e .
+```
