@@ -360,9 +360,7 @@ class RecRunner(object):
             if(k=='episode_acts' and suffix is None):
                 print('num_step: ', len(v))
                 for i, arr in enumerate(v):
-                    # 使用逗号分隔符将数组中的数据连接成一个字符串
-                    data_str = ', '.join(map(str, arr.flatten().tolist()))  # 将数组扁平化，并转换为字符串列表，再连接成一个字符串
-                    # 构建要记录的文本信息，例如：Matrix 1: [0, 1, 2, ...]
+                    data_str = ', '.join(map(str, arr.flatten().tolist()))  
                     text = f'{data_str}'
                     suffix_k = k if suffix is None else suffix + k 
                     if self.use_wandb:
@@ -370,18 +368,6 @@ class RecRunner(object):
                     else:
                         # self.writter.add_histogram(suffix_k, v, self.total_env_steps)
                         self.writter.add_text(suffix_k, text, self.total_env_steps)
-                # if len(v) > 0:
-                #     #acts = torch.tensor(v)
-                #     print('num_step: ', len(v))
-                #     v_str = str(v)
-                #     # v_str = np.array2string(v, suppress_small=True, separator='')
-                #     suffix_k = k if suffix is None else suffix + k 
-                #     # print(suffix_k + " is " + str(v))
-                #     if self.use_wandb:
-                #         wandb.log({suffix_k: np.mean(v)}, step=self.total_env_steps)
-                #     else:
-                #         # self.writter.add_histogram(suffix_k, v, self.total_env_steps)
-                #         self.writter.add_text(suffix_k, v_str, self.total_env_steps)
             else:
                 if len(v) > 0:
                     v = np.mean(v)
