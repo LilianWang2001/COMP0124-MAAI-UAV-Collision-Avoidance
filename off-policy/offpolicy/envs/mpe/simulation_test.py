@@ -16,7 +16,6 @@ def action_steps(file_path):
         tags = event_acc.Tags()
         print(tags)
 
-        # ==================== Should Change to 'episode_acts/text_summary' =================== #
         tag = 'episode_acts/text_summary'
         acts_str = event_acc.Tensors(tag)
         # Extract the last episode's actions
@@ -36,10 +35,8 @@ def action_steps(file_path):
         
     return acts_array
 # ===================================== Change the file path ============================= #
-#file_path = 'D:/MAAI/off-policy/offpolicy/scripts/results/MPE/simple_spread/qmix/debug/run28/logs/events.out.tfevents.1712228989.DESKTOP-U9OC6U6'
-#file_path = 'D:/MAAI/off-policy/offpolicy/scripts/results/MPE/simple_spread/qmix/debug/run33/logs/events.out.tfevents.1712397982.DESKTOP-U9OC6U6' # 33: our test environment; 34: example env
-file_path = 'D:/MAAI/off-policy/offpolicy/scripts/results/MPE/simple_spread/qmix/debug/run39/logs/events.out.tfevents.1712437990.DESKTOP-U9OC6U6'
-acts_array = action_steps(file_path)
+file_path4 = 'D:/MAAI/off-policy/offpolicy/scripts/results/MPE/simple_spread/qmix/debug/run41/logs/events.out.tfevents.1712571454.DESKTOP-U9OC6U6'
+acts_array = action_steps(file_path4)
 
 env.reset()
 
