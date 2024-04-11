@@ -34,7 +34,7 @@ By changing the initial fixed states in environment to the random sampled case, 
 
 ## QMIX (based on [MARL Benchmark](https://github.com/OpenRL-Lab/openrl))
 
-The training and evaluation process of [MAPPO](https://arxiv.org/abs/2103.01955) are implemented in ```openrl``` folder.
+The training and evaluation process of [QMIX] are implemented in ```off-policy``` folder.
 
 To enable the off-policy library
 ```
@@ -42,3 +42,12 @@ To enable the off-policy library
 cd off-policy
 pip install -e .
 ```
+The custom MPE for MAPPO algorithm is defined in ```off-policy/offpolicy/envs/mpe/scenarios/simple_spread.py```. In addition, the test environment based on pettingzoo is also modified.
+
+Main modification includes: 
+modifying the QMIX policy optimization and computation (```off-policy/offpolicy/algorithms/qmix/algorithm/QMixPolicy.py```) 
+saving the trained model (```off-policy/offpolicy/runner/run/base_runner.py```, ```off-policy/offpolicy/runner/run/mpe_runner.py```), 
+saving the actions derived from the last episode ((```off-policy/offpolicy/runner/run/base_runner.py```, ```off-policy/offpolicy/runner/run/mpe_runner.py```),), 
+visualizing on the test environment (```off-policy/offpolicy/envs/mpe/simulation_test.py```, ```off-policy/offpolicy/envs/mpe/result_curves.py```)
+
+The test result is presented in the report.
